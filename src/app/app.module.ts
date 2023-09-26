@@ -42,6 +42,11 @@ import { CreateContractOwnerComponent } from './public/pages/main-page-owner/cre
 import { RentOwnerComponent } from './public/pages/main-page-owner/rent-owner/rent-owner.component';
 import { RentTenantComponent } from './public/pages/main-page-tenant/rent-tenant/rent-tenant.component';
 import { PayCarRentalComponent } from './public/pages/main-page-tenant/pay-car-rental/pay-car-rental.component';
+import { RequestTenantComponent } from './public/pages/request/request-tenant/request-tenant.component';
+import { ProfileTenantComponent } from './public/pages/profile-user/profile-tenant/profile-tenant.component';
+import { ProfileOwnerComponent } from './public/pages/profile-user/profile-owner/profile-owner.component';
+
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -66,7 +71,9 @@ import { PayCarRentalComponent } from './public/pages/main-page-tenant/pay-car-r
     RentOwnerComponent,
     RentTenantComponent,
     PayCarRentalComponent,
-
+    RequestTenantComponent,
+    ProfileTenantComponent,
+    ProfileOwnerComponent,
 
 
   ],
@@ -91,7 +98,8 @@ import { PayCarRentalComponent } from './public/pages/main-page-tenant/pay-car-r
     NgbSlide,
     NgbModule,
     SlickCarouselModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatListModule
   ],
   exports:[
   MatButtonModule,
