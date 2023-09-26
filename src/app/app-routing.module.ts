@@ -34,7 +34,9 @@ import {RentOwnerComponent} from "./public/pages/main-page-owner/rent-owner/rent
 import {RentTenantComponent} from "./public/pages/main-page-tenant/rent-tenant/rent-tenant.component";
 import {PayCarRentalComponent} from "./public/pages/main-page-tenant/pay-car-rental/pay-car-rental.component";
 
-
+import { ProfileOwnerComponent } from './public/pages/profile-user/profile-owner/profile-owner.component';
+import { ProfileTenantComponent } from './public/pages/profile-user/profile-tenant/profile-tenant.component';
+import { RequestTenantComponent } from './public/pages/request/request-tenant/request-tenant.component';
 
 const routes:Routes=[
   {path: 'login-tenant',component:LoginTenantComponent},
@@ -55,6 +57,9 @@ const routes:Routes=[
   {path: 'create-contract-owner', component: CreateContractOwnerComponent},
   {path: 'rent-owner', component: RentOwnerComponent},
   {path: 'rent-tenant', component: RentTenantComponent},
+  {path: 'requests-tenant', component: RequestTenantComponent},
+  {path: 'perfil-owner', component: ProfileOwnerComponent},
+  {path: 'perfil-tenant', component: ProfileTenantComponent},
   {path: 'pay-car-rental', component: PayCarRentalComponent},
   {path:'',redirectTo:'login-tenant',pathMatch:'full'},
   {path:'**',component:PageNotFoundComponent},
