@@ -24,7 +24,7 @@
   list-style-type: none;
 }
 .buttonnav:focus{
-  color: #FF7A00;
+  color: #2F9568;
 }
 .example-icon {
   padding: 0 14px;
@@ -95,7 +95,7 @@
   font-size: 40px;
   display: flex;
   flex-flow: column;
-  color: #FF7A00;
+  color: #2F9568;
 
   font-family: 'Poppins',sans-serif;
 }
@@ -155,7 +155,7 @@
 
 .center-button-subir-foto {
   width: 200px;
-  background-color: #FF7A00;
+  background-color: #2F9568;
   color: white;
 }
 
@@ -166,6 +166,6 @@
 }
 
 .registrar-button {
-  background-color: #FF7A00;
+  background-color: #2F9568;
   color: black;
 }
