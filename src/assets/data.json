@@ -1,0 +1,40 @@
+{
+    "users":[
+        {
+            "id":1,
+            "name":"John",
+            "age":20
+        },
+        {
+            "id":2,
+            "name":"Pete",
+            "age":30
+        },
+        {
+            "id":3,
+            "name":"Mary",
+            "age":25
+        }
+    ],
+
+    "cars":[
+        {
+            "id":1,
+            "brand":"BMW",
+            "photo": "https://dbhdyzvm8lm25.cloudfront.net/stills_0640_png/MY2020/14090/14090_st0640_116.png",   
+            "price":800
+        },
+        {
+            "id":2,
+            "brand":"Mercedes",
+            "photo": "https://imgd.aeplcdn.com/0x0/n/cw/ec/20865/amg-gt-exterior-right-front-three-quarter-60800.jpeg?q=80",
+            "price":900
+        },
+        {
+            "id":3,
+            "brand":"Opel",
+            "photo": "https://movicenter-web.s3.us-east-2.amazonaws.com/pics2/Opel/Corsa-2.png",
+            "price":150
+        }
+    ]
+}
