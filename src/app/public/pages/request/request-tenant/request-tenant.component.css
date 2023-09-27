@@ -23,7 +23,7 @@
   list-style-type: none;
 }
 .buttonnav:focus {
-  color: #ff7a00;
+  color: #2F9568;
 }
 .example-icon {
   padding: 0 14px;
@@ -52,7 +52,7 @@
 .titulo {
   font-family: "Poppins", sans-serif;
   margin: 80px;
-  color: #ff7a00;
+  color: #2F9568;
 }
 
 .txt-1 {
