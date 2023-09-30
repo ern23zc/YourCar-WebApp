@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "yourcar-f7a68"
+  },
+  "targets": {
+    "yourcar-f7a68": {
+      "hosting": {
+        "Frontend-Web-Application3": [
+          "yourcar-f7a68"
+        ]
+      }
+    }
+  }
+}
