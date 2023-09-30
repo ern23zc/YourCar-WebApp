@@ -30,13 +30,23 @@
         <mat-label style="text-align: center;font-size: 15px;color: #14131B">¿Todavia no estas registrado? <a [routerLink]="['/register-owner']" style="color: #14131B;text-decoration: none"> <b>CREAR CUENTA</b></a> </mat-label>
         <br>
         <mat-form-field>
-          <input matInput [(ngModel)]="email" type="text" placeholder="Correo electrónico" class="input"   >
+          <input matInput [(ngModel)]="email" (input)="validateEmail()" type="text" placeholder="Correo electrónico" class="input">
         </mat-form-field>
+        <mat-error *ngIf="!isEmailNotEmpty">El campo de correo electrónico no puede estar vacío.</mat-error>
+        <mat-error *ngIf="isEmailNotEmpty && !isEmailValid">Por favor, ingrese un correo válido.</mat-error>
         <mat-form-field>
-          <input matInput [(ngModel)]="password" type="password" placeholder="Contraseña" class="input" >
+          <input matInput [(ngModel)]="password" (input)="validatePassword()" type="password" placeholder="Contraseña" class="input">
         </mat-form-field>
+        <mat-error *ngIf="!isPasswordNotEmpty">La contraseña no puede estar vacía.</mat-error>
+        <mat-error *ngIf="isPasswordNotEmpty && !isPasswordValid">La contraseña debe tener al menos 6 caracteres.</mat-error>
         <mat-label style="color: #14131B;justify-content: right;text-align: right;"> <a mat-button [routerLink]="['/recover-password-owner']"> <b style="font-family: 'Poppins', sans-serif"> ¿Has olvidado tu contraseña?</b></a></mat-label> <br>
-        <button mat-button style="color: white;background-color: #2F9568" [routerLink]="['/main-page-owner']">Iniciar Sesión como Propietario</button>
+        <button mat-button style="color: white;background-color: #2F9568" [routerLink]="['/main-page-owner']" [disabled]="!isLoginFormValid">Iniciar Sesión como Propietario</button>
+
+
+
+
+
+
 
       </div>
 
