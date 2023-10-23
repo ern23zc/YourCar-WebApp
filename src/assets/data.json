@@ -1,0 +1,142 @@
+{
+    "users":[
+        {
+            "id":1,
+            "name":"John",
+            "age":20
+        },
+        {
+            "id":2,
+            "name":"Pete",
+            "age":30
+        },
+        {
+            "id":3,
+            "name":"Mary",
+            "age":25
+        }
+    ],
+
+    "cars":[
+      {
+        "id": 1,
+        "brand": "BMW",
+        "photo": "https://dbhdyzvm8lm25.cloudfront.net/stills_0640_png/MY2020/14090/14090_st0640_116.png",
+        "price": 800
+      },
+      {
+        "id": 2,
+        "brand": "Mercedes",
+        "photo": "https://imgd.aeplcdn.com/0x0/n/cw/ec/20865/amg-gt-exterior-right-front-three-quarter-60800.jpeg?q=80",
+        "price": 900
+      },
+      {
+        "id": 3,
+        "brand": "Opel",
+        "photo": "https://movicenter-web.s3.us-east-2.amazonaws.com/pics2/Opel/Corsa-2.png",
+        "price": 150
+      },
+      {
+        "id": 4,
+        "brand": "Audi",
+        "photo": "https://e7.pngegg.com/pngimages/215/409/png-clipart-audi-audi.png",
+        "price": 1000
+      },
+      {
+        "id": 5,
+        "brand": "Ford",
+        "photo": "https://purepng.com/public/uploads/large/purepng.com-fordfordcarfodr-carvehicle-1701527484476nstqx.png",
+        "price": 600
+      },
+      {
+        "id": 6,
+        "brand": "Honda",
+        "photo": "https://purepng.com/public/uploads/large/purepng.com-honda-carshondacarshonda-manufacturingvehicle-honda-170152748621075wy1.png",
+        "price": 750
+      },
+      {
+        "id": 7,
+        "brand": "Toyota",
+        "photo": "https://static.vecteezy.com/system/resources/previews/017/281/522/large_2x/toyota-fortuner-top-model-2755cc-automatic-transmission-turbo-engine-6-speed-gear-free-png.png",
+        "price": 700
+      },
+      {
+        "id": 8,
+        "brand": "Chevrolet",
+        "photo": "https://www.pngall.com/wp-content/uploads/2016/06/Chevrolet-PNG.png",
+        "price": 650
+      },
+      {
+        "id": 9,
+        "brand": "Nissan",
+        "photo": "https://i.pinimg.com/564x/d9/ed/2d/d9ed2dba5b24e77e11ec9ded2d6bf80b.jpg",
+        "price": 720
+      },
+      {
+        "id": 10,
+        "brand": "Subaru",
+        "photo": "https://www.pngmart.com/files/9/Blue-Subaru-PNG-Free-Download.png",
+        "price": 850
+      },
+      {
+        "id": 11,
+        "brand": "Volkswagen",
+        "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6TA__K_KYmsajzLIfpIxDgZJEJgtffAvKjaz4H9yuYwZH169fYT_5oiiKF73g31Kbj-U&usqp=CAU",
+        "price": 780
+      },
+      {
+        "id": 12,
+        "brand": "Hyundai",
+        "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQP3ZGhYxJ7iRz-oLixU-ToVM_PoKZXyHjrVFTvAROatiQ5q6B0ccsGWHDW8zA9Dobbc6U&usqp=CAU",
+        "price": 690
+      },
+      {
+        "id": 13,
+        "brand": "Kia",
+        "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHtLYb2_UZvzfTkdHGHV4g2ji6Nq3GPVWlpfXayqaLPJ9SUqw1fnN1UU1e_tVPYx_Ae6E&usqp=CAU",
+        "price": 710
+      },
+      {
+        "id": 14,
+        "brand": "Mazda",
+        "photo": "https://www.pngall.com/wp-content/uploads/2/Red-Mazda-PNG-File.png",
+        "price": 820
+      },
+      {
+        "id": 15,
+        "brand": "Lexus",
+        "photo": "https://w7.pngwing.com/pngs/264/550/png-transparent-lexus-nx-car-sport-utility-vehicle-lexus-rx-hybrid-car-compact-car-car-vehicle.png",
+        "price": 1200
+      },
+      {
+        "id": 16,
+        "brand": "Lexus",
+        "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQskaHqLJcU-NxK8EoDwL5IAkscbA25WNFJMGYkID_cd1nnVLZ-nvfzk18lskXUd-hPeVk&usqp=CAU",
+        "price": 1500
+      },
+      {
+        "id": 17,
+        "brand": "Jeep",
+        "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxqulB9K-J6L5EFkyJrf4uONZLEspAtWI8BjiZ-jlgv4tpG8rXDtFVemurN2-lnlAm7Vg&usqp=CAU",
+        "price": 1100
+      },
+      {
+        "id": 18,
+        "brand": "Jeep",
+        "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUTriBASaO1t4S0S7wpd2y5VOoHzS2i3_bCurkCzCQkRLjoOjV_6PcZ-oA_85Fzfjbh94&usqp=CAU",
+        "price": 800
+      },
+      {
+        "id": 19,
+        "brand": "Nissan",
+        "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9WSvMZq_8KvnovKRn9tf4PTY4VG5yHzxco-VzLVf-iCjU0x7Hymv2PNYbQ_2V-8X_OvY&usqp=CAU",
+        "price": 600
+      },
+      {
+        "id": 20,
+        "brand": "Nissan",
+        "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkSxh6duo9PEAf3G_14dz0rNxZg_jvQQQaO8JhlLIlUnxbx25EbMGBRjFfZAiyr9B6_mA&usqp=CAU",
+        "price": 2500
+      }
+    ]
+}

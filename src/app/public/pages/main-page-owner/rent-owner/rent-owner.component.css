@@ -24,7 +24,7 @@
   list-style-type: none;
 }
 .buttonnav:focus{
-  color: #FF7A00;
+  color: #2F9568;
 }
 .example-icon {
   padding: 0 14px;
@@ -95,7 +95,7 @@
   font-size: 40px;
   display: flex;
   flex-flow: column;
-  color: #FF7A00;
+  color: #2F9568;
 
   font-family: 'Poppins',sans-serif;
 }
