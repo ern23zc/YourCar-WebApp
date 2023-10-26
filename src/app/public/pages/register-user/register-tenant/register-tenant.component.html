@@ -27,37 +27,51 @@
         <br><br>
         <mat-label style="text-align: center;font-size: 30px;color: #14131B"><b>Registrate</b></mat-label>
         <br>
-        <mat-label style="text-align:left">Nombres</mat-label>
-        <mat-form-field>
-          <input matInput [(ngModel)]="name" type="text" placeholder="Nombres" class="input"   >
-        </mat-form-field>
+        <form  [formGroup]="formReg_Tenant" (ngSubmit)="onSubmit()" >
+          <mat-label style="text-align:left">Nombres</mat-label><br>
+          <mat-form-field class="form-field">
+            <input matInput formControlName="name" placeholder="Nombres" class="input">
+            <mat-error *ngIf="formReg_Tenant.get('name')?.hasError('invalidName')">
+              Ingresa solo letras en el campo de Nombres.
+            </mat-error>
+          </mat-form-field>
+          <br>
 
-        <mat-label style="text-align:left">Apellidos</mat-label>
-        <mat-form-field>
-          <input matInput [(ngModel)]="lastname" type="text" placeholder="Apellidos" class="input"   >
-        </mat-form-field>
+          <mat-label style="text-align:left">Apellidos</mat-label><br>
+          <mat-form-field class="form-field">
+            <input matInput formControlName="lastname" placeholder="Apellidos" class="input">
+            <mat-error *ngIf="formReg_Tenant.get('name')?.hasError('invalidName')">
+              Ingresa solo letras en el campo de Apellidos.
+            </mat-error>
+          </mat-form-field>
 
-        <mat-label style="text-align:left">Fecha de Nacimiento</mat-label>
-        <mat-form-field>
-          <input matInput [(ngModel)]="birthdate" type="date"  class="input"   >
-        </mat-form-field>
+          <mat-label style="text-align:left">Fecha de Nacimiento</mat-label><br>
+          <mat-form-field class="form-field">
+            <input matInput formControlName="lastname" type="date" placeholder="Apellidos" class="input">
+          </mat-form-field><br>
 
-        <mat-label style="text-align:left">Teléfono</mat-label>
-        <mat-form-field>
-          <input matInput [(ngModel)]="phone" type="number" placeholder="Teléfono" class="input"   >
-        </mat-form-field>
+          <mat-label style="text-align:left">Teléfono</mat-label><br>
+          <mat-form-field class="form-field">
+            <input matInput formControlName="phone" placeholder="Teléfono" type="number" class="input">
+            <mat-error *ngIf="formReg_Tenant.get('phone')?.hasError('minlength') || formReg_Tenant.get('phone')?.hasError('maxlength')">
+              El teléfono debe contener exactamente 9 dígitos.
+            </mat-error>
+          </mat-form-field><br>
 
-        <mat-label style="text-align:left">Correo</mat-label>
-        <mat-form-field>
-          <input matInput [(ngModel)]="email" type="text" placeholder="Correo electrónico" class="input"   >
-        </mat-form-field>
 
-        <mat-label style="text-align:left">Contraseña</mat-label>
-        <mat-form-field>
-          <input matInput [(ngModel)]="password" type="password" placeholder="Contraseña" class="input" >
-        </mat-form-field>
+          <mat-label style="text-align:left">Correo</mat-label><br>
+          <mat-form-field class="form-field">
+            <input matInput formControlName="email" placeholder="Correo electrónico" class="input">
+          </mat-form-field><br>
 
-        <button mat-button style="color: white;background-color: #2F9568" [routerLink]="['/validation']">Registrate como Arrendatario</button>
+          <mat-label style="text-align:left">Contraseña</mat-label><br>
+          <mat-form-field class="form-field">
+            <input matInput formControlName="password" type="password" placeholder="Contraseña" class="input">
+          </mat-form-field><br>
+
+          <button class="form-field" mat-button style="color: white; background-color: #2F9568" type="submit">Registrate como Arrendatario</button>
+
+        </form>
 
       </div>
 
