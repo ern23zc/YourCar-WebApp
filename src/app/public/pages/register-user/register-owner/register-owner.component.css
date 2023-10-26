@@ -62,3 +62,15 @@
   text-align: start;
   justify-content: center;
 }
+.form-field{
+  width: 100%;
+}
+
+
+.phone-prefix {
+
+    padding: 6px 8px;
+    border-right: 1px solid #888;
+    user-select: none; /* Evita que el usuario seleccione el prefijo */
+    pointer-events: none; /* Evita eventos del mouse en el prefijo */
+}
