@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {UserService} from "../../../../services/user.service";
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormControl} from "@angular/forms";
 import {Router} from "@angular/router";
 
 @Component({
@@ -10,19 +10,21 @@ import {Router} from "@angular/router";
   providers:[UserService]
 })
 export class RecoverPasswordOwnerComponent {
-  formRec_Owner: FormGroup;
+  formRec_Owner = new FormControl('');
 
   constructor(private userService:UserService, private router:Router) {
-    this.formRec_Owner = new FormGroup({
-      email: new FormControl(),
-    });
   }
-  onReset(){
-    this.userService.resetPassword(this.formRec_Owner.value).then(response=>{
-      console.log(response);
-      alert('Se envio un código de acceso a su correo!');
-    }).catch(error=>console.log(error));
+  async onReset(){
+    try {
+      const email = this.formRec_Owner.value;
+      await this.userService.resetPassword({email: email});
+      window.alert('Se ha enviado un correo, Revisa tu correo')
+      this.router.navigate(['/login-owner'])
+    }
+    catch (error)
+    {
+      console.log(error)
+    }
 
   }
-
 }
