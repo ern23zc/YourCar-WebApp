@@ -1,21 +1,27 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NotificationsOwnerComponent } from './notifications-owner.component';
+import {RouterTestingModule} from "@angular/router/testing";
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatCardModule} from "@angular/material/card";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatSidenavModule} from "@angular/material/sidenav";
+import {MatIconModule} from "@angular/material/icon";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
-describe('NotificationsOwnerComponent', () => {
-  let component: NotificationsOwnerComponent;
-  let fixture: ComponentFixture<NotificationsOwnerComponent>;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations: [NotificationsOwnerComponent]
-    });
-    fixture = TestBed.createComponent(NotificationsOwnerComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+describe('notification-owner', () => {
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [RouterTestingModule, MatToolbarModule, MatCardModule, MatFormFieldModule,MatSidenavModule,MatIconModule,BrowserAnimationsModule ],
+      declarations: [NotificationsOwnerComponent],
+    }).compileComponents();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should create the app', () => {
+    const fixture = TestBed.createComponent(NotificationsOwnerComponent);
+    const app = fixture.componentInstance;
+    expect(app).toBeTruthy();
   });
+
 });

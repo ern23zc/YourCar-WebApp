@@ -1,21 +1,31 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProfileOwnerComponent } from './profile-owner.component';
+import {RouterTestingModule} from "@angular/router/testing";
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatCardModule} from "@angular/material/card";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatSidenavModule} from "@angular/material/sidenav";
+import {MatIconModule} from "@angular/material/icon";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
+import {MatSelectModule} from "@angular/material/select";
+import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatListModule} from "@angular/material/list";
 
-describe('ProfileOwnerComponent', () => {
-  let component: ProfileOwnerComponent;
-  let fixture: ComponentFixture<ProfileOwnerComponent>;
-
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations: [ProfileOwnerComponent]
-    });
-    fixture = TestBed.createComponent(ProfileOwnerComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+describe('profile-owner', () => {
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [RouterTestingModule, MatToolbarModule, MatCardModule, MatFormFieldModule,
+        MatSidenavModule,MatIconModule,BrowserAnimationsModule,MatSnackBarModule,MatSelectModule, MatPaginatorModule,
+      MatListModule],
+      declarations: [ProfileOwnerComponent],
+    }).compileComponents();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should create the app', () => {
+    const fixture = TestBed.createComponent(ProfileOwnerComponent);
+    const app = fixture.componentInstance;
+    expect(app).toBeTruthy();
   });
 });
