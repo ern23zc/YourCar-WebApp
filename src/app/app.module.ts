@@ -52,8 +52,9 @@ import { MatSortModule } from '@angular/material/sort';
 import { HttpClientModule } from '@angular/common/http';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
-import { provideAuth,getAuth } from '@angular/fire/auth';
+import {provideAuth, getAuth, Auth} from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import {UserService} from "./services/user.service";
 
 
 
@@ -87,6 +88,7 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 
   ],
     imports: [
+        MatSnackBarModule,
         AppRoutingModule,
         BrowserModule,
         BrowserAnimationsModule,
@@ -122,7 +124,7 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
   MatButtonModule,
   MatIconModule,
   ],
-  providers: [MatSnackBarModule],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

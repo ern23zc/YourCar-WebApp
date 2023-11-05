@@ -2,15 +2,11 @@ import { Component } from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {UserService} from "../../../../services/user.service";
 import {Router} from "@angular/router";
-import { Auth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-login-tenant',
   templateUrl: './login-tenant.component.html',
   styleUrls: ['./login-tenant.component.css'],
-  providers: [
-    Auth
-  ]
 })
 export class LoginTenantComponent {
   formLog_Tenant: FormGroup;

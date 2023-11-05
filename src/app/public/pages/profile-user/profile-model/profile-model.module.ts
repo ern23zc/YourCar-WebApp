@@ -1,3 +1,12 @@
+export interface Tenant{
+  uid:string,
+  nombre:string,
+  apellido:string,
+  Fecha_de_Nacimiento:string,
+  telefono:string,
+  email:string,
+}
+
 export class TenantEntity {
   id!: number;
   name!: string;
