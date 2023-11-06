@@ -21,4 +21,13 @@ export class UserService {
       return sendPasswordResetEmail(this.auth, email)
     }catch (error){console.log(error)}
   }
+
+  async getUID(){
+    const user = await this.auth.currentUser;
+    if(user==null){
+      return null;
+    } else {
+      return user.uid;
+    }
+  }
 }

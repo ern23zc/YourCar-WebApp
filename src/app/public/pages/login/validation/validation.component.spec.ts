@@ -19,5 +19,4 @@ describe('validation', () => {
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
   });
-
 });

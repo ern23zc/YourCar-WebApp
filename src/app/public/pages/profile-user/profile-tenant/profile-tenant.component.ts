@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {Firestore} from "@angular/fire/firestore";
-import {FirestoreServiceService} from "../firestore-service.service";
+import {Tenant} from "../profile-model/profile-model.module";
+import {OnInit} from "@angular/core";
+import {UserService} from "../../../../services/user.service";
 
 @Component({
   selector: 'app-profile-tenant',
@@ -9,26 +9,25 @@ import {FirestoreServiceService} from "../firestore-service.service";
   styleUrls: ['./profile-tenant.component.css']
 })
 export class ProfileTenantComponent {
-  nombreGet:any;
-  cargoGet:any;
-  getData:any=[];
-
-  form = new FormGroup({
-    nombre: new  FormControl('', Validators.required),
-    cargo: new  FormControl('', Validators.required),
-  })
-
-  constructor(private fireService:FirestoreServiceService) {
+  constructor(public userService:UserService) {
   }
 
-  async agregarData(){
-    console.log(this.form.value.cargo)
-    this.nombreGet = this.form.value.nombre
-    this.cargoGet = this.form.value.cargo
-  }
+  tenant : Tenant={
+    uid: '',
+    nombre: '',
+    apellido: '',
+    Fecha_de_Nacimiento: '',
+    telefono: '',
+    email: '',
+    foto: '',
+  };
 
-  crearData(){
-    this.agregarData()
-    this.fireService.guardarDatos(this.nombreGet,this.cargoGet)
+  async ngOnInit(){
+    const uid = await this.userService.getUID();
+    console.log(uid)
+  }
+  async actualizar(){
+    const uid = await this.userService.getUID();
+    console.log(uid)
   }
 }

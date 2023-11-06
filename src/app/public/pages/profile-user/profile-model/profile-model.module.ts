@@ -5,7 +5,20 @@ export interface Tenant{
   Fecha_de_Nacimiento:string,
   telefono:string,
   email:string,
+  foto: string,
 }
+
+export interface Owner{
+  uid:string,
+  nombre:string,
+  apellido:string,
+  Fecha_de_Nacimiento:string,
+  telefono:string,
+  email:string,
+  foto: string,
+}
+
+
 
 export class TenantEntity {
   id!: number;

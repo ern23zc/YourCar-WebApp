@@ -31,6 +31,7 @@
         <mat-card-content class="letter3" >
           <mat-list role="list">
             <mat-list role="list"><p> Nombre: Piero Salvador</p></mat-list>
+            <input [(ngModel)]="tenant.nombre" type="text">
             <mat-list role="list">Apellido: Torres Arias</mat-list>
             <mat-list role="list">celular: 99839322</mat-list>
             <mat-list role="list">Correo: pi23@gmail.com</mat-list>
@@ -38,7 +39,7 @@
           </mat-list>
         </mat-card-content>
       <div class="boton_Profile" fxLayout="column" fxShow="true" fxHide.lt-md="true">
-        <button mat-button  style="background-color: #14131B; color: white;">Actualizar Datos</button>
+        <button mat-button (click)="actualizar()" style="background-color: #14131B; color: white;">Actualizar Datos</button>
         <br>
         <button mat-button  style="background-color: #14131B; color: white;">Subir Documentos de antecedentes Penales</button><br>
         <button mat-button  [routerLink]="['/login-tenant']" style="background-color: #14131B; color: white;">Cerrar Sesión</button>
