@@ -27,14 +27,17 @@
         <br>
         <mat-label style="text-align: center;font-size: 15px;color: #14131B">¿Todavia no estas registrado? <a [routerLink]="['/register-tenant']" style="color: #14131B;text-decoration: none"> <b>CREAR CUENTA</b></a> </mat-label>
         <br>
-        <mat-form-field>
-          <input matInput [(ngModel)]="email" type="text" placeholder="Correo electrónico" class="input"   >
-        </mat-form-field>
-        <mat-form-field>
-          <input matInput [(ngModel)]="password" type="password" placeholder="Contraseña" class="input" >
-        </mat-form-field>
-        <mat-label style="color: #14131B;justify-content: right;text-align: right;"> <a mat-button> <b style="font-family: 'Poppins', sans-serif" [routerLink]="['/recover-password-tenant']"> ¿Has olvidado tu contraseña?</b></a></mat-label> <br>
-        <button mat-button style="color: white;background-color: #2F9568" [routerLink]="['/main-page-tenant']">Iniciar Sesión como Arrendatario</button>
+        <form [formGroup]="formLog_Tenant" (ngSubmit)="onSubmit()">
+          <mat-form-field class="form-field">
+            <input matInput formControlName="email" placeholder="Correo Electronico" class="input">
+          </mat-form-field>
+          <mat-form-field class="form-field">
+            <input matInput formControlName="password" type="password" placeholder="Contraseña" class="input">
+          </mat-form-field>
+          <mat-label style="color: #14131B;justify-content: right;text-align: right;"> <a mat-button [routerLink]="['/recover-password-tenant']"> <b style="font-family: 'Poppins', sans-serif"> ¿Has olvidado tu contraseña?</b></a></mat-label> <br>
+
+          <button class="form-field" mat-button style="color: white;background-color: #2F9568" type="submit">Iniciar Sesión como Arrendatario</button>
+        </form>
 
       </div>
 

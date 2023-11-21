@@ -34,15 +34,6 @@
   flex: 1 1 auto;
 }
 
-.card-share{
-  width: 35%;
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  background-color: whitesmoke;
-  opacity: 100%;
-
-}
 
 .card-share2{
   width: 55%;
@@ -124,4 +115,32 @@
 .button{
   width: 20%;
   margin-left: 50px;
+}
+
+.car-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.car-card {
+  width: 200px;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid #eaeaea;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.car-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.car-card p {
+  margin: 5px 0;
+  font-size: 14px;
 }

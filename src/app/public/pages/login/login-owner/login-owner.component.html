@@ -4,7 +4,6 @@
 <!--<a mat-button-->
 <!--   [routerLink]="['/about']">chancar</a>  Para las rutas-->
 
-
 <div class="content-primary" >
   <mat-toolbar style="color: #2F9568;background-color: #14131B ">
     <img src="https://i.postimg.cc/BZHpSgcb/logo-1-removebg-preview.png" width="200px">
@@ -21,7 +20,7 @@
           <div class="example-button-row section-button">
 
             <button mat-button id="btnn" [routerLink]="['/login-tenant']">Arrendatario</button>
-            <button mat-button id="btnn" [routerLink]="['/login-owner']" style="margin-left: 1em">Propietario</button>
+            <button mat-button id="btn" [routerLink]="['/login-owner']" style="margin-left: 1em">Propietario</button>
           </div>
         </section>
         <br><br>
@@ -29,14 +28,22 @@
         <br>
         <mat-label style="text-align: center;font-size: 15px;color: #14131B">¿Todavia no estas registrado? <a [routerLink]="['/register-owner']" style="color: #14131B;text-decoration: none"> <b>CREAR CUENTA</b></a> </mat-label>
         <br>
-        <mat-form-field>
-          <input matInput [(ngModel)]="email" type="text" placeholder="Correo electrónico" class="input"   >
+
+        <form [formGroup]="formLog_Owner" (ngSubmit)="onSubmit()">
+        <mat-form-field class="form-field">
+          <input matInput formControlName="email" placeholder="Correo Electronico" class="input">
         </mat-form-field>
-        <mat-form-field>
-          <input matInput [(ngModel)]="password" type="password" placeholder="Contraseña" class="input" >
+        <mat-form-field class="form-field">
+          <input matInput formControlName="password" type="password" placeholder="Contraseña" class="input">
         </mat-form-field>
         <mat-label style="color: #14131B;justify-content: right;text-align: right;"> <a mat-button [routerLink]="['/recover-password-owner']"> <b style="font-family: 'Poppins', sans-serif"> ¿Has olvidado tu contraseña?</b></a></mat-label> <br>
-        <button mat-button style="color: white;background-color: #2F9568" [routerLink]="['/main-page-owner']">Iniciar Sesión como Propietario</button>
+
+        <button class="form-field" mat-button style="color: white;background-color: #2F9568" type="submit">Iniciar Sesión como Propietario</button>
+        </form>
+
+
+
+
 
       </div>
 

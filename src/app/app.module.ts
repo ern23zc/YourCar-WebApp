@@ -18,7 +18,7 @@ import { MatCardModule } from "@angular/material/card";
 import {NgIf, NgOptimizedImage} from "@angular/common";
 import { MatInputModule } from "@angular/material/input";
 import { MatSelectModule } from "@angular/material/select";
-import { FormsModule } from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { RecoverPasswordTenantComponent } from './public/pages/login/recover-password-tenant/recover-password-tenant.component';
 import { RecoverPasswordOwnerComponent } from './public/pages/login/recover-password-owner/recover-password-owner.component';
 import { RestoreTenantComponent } from './public/pages/login/restore-tenant/restore-tenant.component';
@@ -48,8 +48,13 @@ import { ProfileOwnerComponent } from './public/pages/profile-user/profile-owner
 import { MatTableModule } from '@angular/material/table';
 import { MatListModule } from '@angular/material/list';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatSortModule } from '@angular/material/sort';
 import { HttpClientModule } from '@angular/common/http';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+
 
 
 @NgModule({
@@ -81,34 +86,38 @@ import { HttpClientModule } from '@angular/common/http';
 
 
   ],
-  imports: [
-    AppRoutingModule,
-    BrowserModule,
-    BrowserAnimationsModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatCardModule,
-    NgOptimizedImage,
-    MatInputModule,
-    MatSelectModule,
-    MatIconModule,
-    FormsModule,
-    FlexLayoutModule,
-    MatSidenavModule,
-    MyRoutingModule,
-    NgbCarousel,
-    NgbCarouselModule,
-    NgIf,
-    NgbSlide,
-    NgbModule,
-    SlickCarouselModule,
-    MatSnackBarModule,
-    MatListModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
-    HttpClientModule,
-  ],
+    imports: [
+        AppRoutingModule,
+        BrowserModule,
+        BrowserAnimationsModule,
+        MatToolbarModule,
+        MatButtonModule,
+        MatCardModule,
+        NgOptimizedImage,
+        MatInputModule,
+        MatSelectModule,
+        MatIconModule,
+        FormsModule,
+        FlexLayoutModule,
+        MatSidenavModule,
+        MyRoutingModule,
+        NgbCarousel,
+        NgbCarouselModule,
+        NgIf,
+        NgbSlide,
+        NgbModule,
+        SlickCarouselModule,
+        MatSnackBarModule,
+        MatListModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatDialogModule,
+        MatSortModule,
+        HttpClientModule,
+        provideFirebaseApp(() => initializeApp(environment.firebase)),
+        provideAuth(() => getAuth()),
+        ReactiveFormsModule,
+    ],
   exports:[
   MatButtonModule,
   MatIconModule,
