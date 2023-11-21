@@ -37,110 +37,36 @@
       <router-outlet></router-outlet>
     </mat-toolbar>
 
-    <div style="display: flex; height: 130vh">
-      <mat-card class="card-share">
-        <mat-card-header>
-          <mat-card-title class="letter1"> BUSCA UN AUTO </mat-card-title>
-        </mat-card-header>
-        <mat-card-content class="letter2">
-          <mat-card-subtitle>Marca</mat-card-subtitle>
-          <div style="display: flex; align-items: center">
-            <mat-form-field class="input">
-              <input matInput placeholder="Escribe aquí..." (keyup)="applyFilter($event)" #input/>
-            </mat-form-field>
-            <button
-              mat-button
-              class="button"
-              style="background-color: #14131b; color: white"
-            >
-              BUSCAR
-            </button>
-          </div>
-          <!--
-          <mat-card-subtitle>Precio</mat-card-subtitle>
-          <mat-form-field class="input">
-            <input matInput placeholder="Escribe aquí..." />
-          </mat-form-field>
-          <mat-card-subtitle>Tiempo de Alquiler</mat-card-subtitle>
-          <mat-form-field class="input">
-            <input matInput placeholder="Escribe aquí..." />
-          </mat-form-field>
-          <mat-card-subtitle>Marca</mat-card-subtitle>
-          <mat-form-field class="input">
-            <input matInput placeholder="Escribe aquí..." #input />
-          </mat-form-field>
-          <mat-card-subtitle>Modelo</mat-card-subtitle>
-          <mat-form-field class="input">
-            <input matInput placeholder="Escribe aquí..." />
-          </mat-form-field>
-          <mat-card-subtitle>Clase</mat-card-subtitle>
-          <mat-form-field class="input">
-            <input matInput placeholder="Escribe aquí..." />
-          </mat-form-field>
-          <mat-card-subtitle>Transmisión</mat-card-subtitle>
-          <mat-form-field class="input">
-            <input matInput placeholder="Escribe aquí..." />
-          </mat-form-field>-->
-        </mat-card-content>
-      </mat-card>
+      <div style="display: flex; align-items: center; justify-content: center">
+        <mat-form-field class="input">
+          <input
+            matInput
+            placeholder="Escribe aquí..."
+            [(ngModel)]="searchBrand"
+            (keyup)="applyFilter()"
+          />
+        </mat-form-field>
+      </div>
+      <div class="car-container">
+    <!-- Tarjetas de autos -->
+    <mat-card *ngFor="let car of filteredCars" class="car-card">
+      <img [src]="car.photo" alt="Imagen" />
 
-      <mat-card class="card-share2">
-        <mat-card-content
-          ><div class="mat-elevation-z8">
-            <table mat-table [dataSource]="dataSource">
-              <!-- id Column -->
-
-              <ng-container matColumnDef="id">
-                <th mat-header-cell *matHeaderCellDef>Id.</th>
-
-                <td mat-cell *matCellDef="let element">{{ element.id }}</td>
-              </ng-container>
-
-              <!-- Name Column -->
-
-              <ng-container matColumnDef="brand">
-                <th mat-header-cell *matHeaderCellDef>Name</th>
-
-                <td mat-cell *matCellDef="let element">{{ element.brand }}</td>
-              </ng-container>
-
-              <!-- Photo Column -->
-
-              <ng-container matColumnDef="photo">
-                <th mat-header-cell *matHeaderCellDef>Photo</th>
-                <td mat-cell *matCellDef="let element">
-                  <!-- Utiliza la etiqueta <img> para mostrar la foto -->
-                  <img
-                    [src]="element.photo"
-                    alt="Photo of the movie"
-                    style="max-width: 100px"
-                  />
-                </td>
-              </ng-container>
-
-              <!-- Columna de precio -->
-
-              <ng-container matColumnDef="price">
-                <th mat-header-cell *matHeaderCellDef>Precio</th>
-
-                <td mat-cell *matCellDef="let element">{{ element.price }}</td>
-              </ng-container>
-
-              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-
-              <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-            </table>
-
-            <mat-paginator
-              [pageSizeOptions]="[5, 10, 20]"
-              showFirstLastButtons
-              aria-label="Select page of periodic elements"
-            >
-            </mat-paginator></div
-        ></mat-card-content>
-      </mat-card>
-    </div>
-
+      <!-- Otras propiedades del auto -->
+      <p>Marca: {{ car.brand }}</p>
+      <p>Modelo: {{car.model}}</p>
+      <!--<p>Propietario: {{ car.owner }}</p>-->
+      <p>Velocidad máxima: {{ car.maxspeed }}</p>
+      <p>Consumo de combustible: {{ car.fuelconsumption }}</p>
+      <p>Dimensiones: {{ car.dimension }}</p>
+      <p>Peso: {{ car.weight }}</p>
+      <p>Año: {{ car.year }}</p>
+      <p>Transmisión: {{ car.engine }}</p>
+      <p>Tiempo de alquiler: {{ car.timeloan }}</p>
+      <p>Precio: {{car.price}}</p>
+      <!-- ... -->
+    </mat-card>
+  </div>
     <mat-sidenav #sidenav fxLayout="column">
       <div fxLayout="column">
         <a (click)="sidenav.toggle()" mat-button>

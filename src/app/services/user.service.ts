@@ -5,17 +5,22 @@ import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendP
   providedIn: 'root'
 })
 export class UserService {
-  constructor(private auth: Auth) { }
+
+  constructor(private auth: Auth) {
+  }
 
   getAuthInstance(): Auth {
     return this.auth;
   }
-  register({email, password}: any){
+
+  register({ email, password }: any) {
     return createUserWithEmailAndPassword(this.auth, email, password);
   }
-  login({email, password}: any) {
-   return signInWithEmailAndPassword(this.auth, email, password);
+
+  login({ email, password }: any) {
+    return signInWithEmailAndPassword(this.auth, email, password);
   }
+
   async resetPassword({email}: any){
     try {
       return sendPasswordResetEmail(this.auth, email)

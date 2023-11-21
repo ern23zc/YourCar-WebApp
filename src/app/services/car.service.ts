@@ -9,8 +9,9 @@ import { Car } from '../models/car.model';
 })
 export class CarService {
   
-  base_URL = 'http://localhost:3000/cars';
-  
+  //base_URL = 'http://localhost:3000/cars';
+  base_URL = 'http://localhost:8080/api/car-unity/v1/cars';
+
   constructor( private http: HttpClient) {}
 
   httpOptions = {
@@ -32,8 +33,18 @@ export class CarService {
     return throwError('Something bad happened; please try again later.')
   }
 
-  getCars(): Observable<Car>{
-    return this.http.get<Car>(this.base_URL)
+  //Get all cars
+  getCars(): Observable<Car[]>{
+    return this.http.get<Car[]>(this.base_URL)
+    .pipe(
+      retry(2),
+      catchError(this.handleError)
+    )
+  }
+
+  //Post car
+  createCar(car: Car): Observable<Car>{
+    return this.http.post<Car>(this.base_URL, JSON.stringify(car), this.httpOptions)
     .pipe(
       retry(2),
       catchError(this.handleError)

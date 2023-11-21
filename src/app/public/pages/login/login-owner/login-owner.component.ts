@@ -22,7 +22,7 @@ export class LoginOwnerComponent {
   onSubmit(){
     this.userService.login(this.formLog_Owner.value)
         .then(response=>{
-          console.log(response);
+          console.log(response.user.uid); //-> UID
           this.router.navigate(['/main-page-owner']);
         })
         .catch(error=>console.log(error));

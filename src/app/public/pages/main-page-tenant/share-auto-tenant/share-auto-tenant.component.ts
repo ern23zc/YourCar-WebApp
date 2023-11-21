@@ -10,42 +10,33 @@ import { Car } from 'src/app/models/car.model';
   templateUrl: './share-auto-tenant.component.html',
   styleUrls: ['./share-auto-tenant.component.css'],
 })
-export class ShareAutoTenantComponent {
+export class ShareAutoTenantComponent implements OnInit{
 
-  formValues : any = {};
-  CarsData!: Car;
+  CarsData: Car[] = [];
+  filteredCars: Car[] = [];
+  searchBrand: string = '';
 
-  dataSource = new MatTableDataSource();  
-  displayedColumns: string[] = ['id', 'brand', 'photo', 'price'];
-
-
-  @ViewChild(MatPaginator, { static: true })
-  paginator!: MatPaginator;
-  isEditMode = false;
-
-  @ViewChild(MatSort)
-  Sort!: MatSort;
-
-  car = [];
-
-  constructor(private carService: CarService ) {
-    this.CarsData = {} as Car;
-  }
+  constructor(private carService: CarService) {}
 
   ngOnInit(): void {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.Sort;
     this.getAllCars();
   }
 
   getAllCars() {
-    this.carService.getCars().subscribe((response: any) => {
-      this.dataSource.data = response;
-    });
+    this.carService.getCars().subscribe(
+      (response: Car[]) => {
+        this.CarsData = response;
+        this.filteredCars = response;
+      },
+      (error) => {
+        console.error('Error fetching cars', error);
+      }
+    );
   }
 
-  applyFilter(event: Event){
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+  applyFilter() {
+    this.filteredCars = this.CarsData.filter(car =>
+      car.brand.toLowerCase().includes(this.searchBrand.toLowerCase())
+    );
   }
 }
