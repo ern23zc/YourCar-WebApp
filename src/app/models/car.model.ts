@@ -12,6 +12,6 @@ export interface Car {
     timeloan: any;
     price: any;
     ubication:any;
-    ownerUid: any;
+    ownerUid: string;
     available: boolean;
 }

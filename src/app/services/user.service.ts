@@ -26,4 +26,15 @@ export class UserService {
       return sendPasswordResetEmail(this.auth, email)
     }catch (error){console.log(error)}
   }
+
+  private uid!: string;
+
+
+  setUID(uid: string) {
+    this.uid= uid;
+  }
+  getUID(): string {
+    return this.uid;
+  }
+
 }

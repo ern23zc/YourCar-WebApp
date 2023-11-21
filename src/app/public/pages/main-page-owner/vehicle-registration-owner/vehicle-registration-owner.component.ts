@@ -27,7 +27,7 @@ export class VehicleRegistrationOwnerComponent {
     ownerUid: '',
     available: true,
   };
-
+  uid!: string;
   constructor(
     private carService: CarService,
     private userService: UserService
@@ -35,7 +35,9 @@ export class VehicleRegistrationOwnerComponent {
 
   submitCar() {
     //Obtener el UID del usuario actual
-
+    this.uid=this.userService.getUID();
+    console.log(this.uid);
+    this.car.ownerUid = this.uid;
     // Muestra en la consola la data que estás intentando postear
     console.log('Data a enviar:', this.car);
 

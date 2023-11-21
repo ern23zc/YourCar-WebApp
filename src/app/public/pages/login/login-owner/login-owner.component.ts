@@ -23,6 +23,7 @@ export class LoginOwnerComponent {
     this.userService.login(this.formLog_Owner.value)
         .then(response=>{
           console.log(response.user.uid); //-> UID
+          this.userService.setUID(response.user.uid);
           this.router.navigate(['/main-page-owner']);
         })
         .catch(error=>console.log(error));
