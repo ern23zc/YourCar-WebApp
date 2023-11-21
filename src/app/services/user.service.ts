@@ -5,8 +5,11 @@ import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendP
   providedIn: 'root'
 })
 export class UserService {
+  private readonly UID_KEY = 'user_uid';
 
   constructor(private auth: Auth) {
+    this.uid = localStorage.getItem(this.UID_KEY) || '';
+
   }
 
   getAuthInstance(): Auth {
@@ -18,7 +21,12 @@ export class UserService {
   }
 
   login({ email, password }: any) {
-    return signInWithEmailAndPassword(this.auth, email, password);
+    return signInWithEmailAndPassword(this.auth, email, password).then(response =>{
+      this.uid = response.user.uid;
+      localStorage.setItem(this.UID_KEY, this.uid);
+      return response;
+    })
+    ;
   }
 
   async resetPassword({email}: any){
@@ -29,12 +37,13 @@ export class UserService {
 
   private uid!: string;
 
-
-  setUID(uid: string) {
-    this.uid= uid;
-  }
   getUID(): string {
     return this.uid;
+  }
+  clearUID() {
+    // Limpiar el UID y también eliminarlo del localStorage
+    this.uid = '';
+    localStorage.removeItem(this.UID_KEY);
   }
 
 }

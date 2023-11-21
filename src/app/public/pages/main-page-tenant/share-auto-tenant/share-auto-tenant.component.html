@@ -64,6 +64,7 @@
       <p>Transmisión: {{ car.engine }}</p>
       <p>Tiempo de alquiler: {{ car.timeloan }}</p>
       <p>Precio: {{car.price}}</p>
+      <button mat-button color="primary" (click)="rentCar(car)">Rent</button>
       <!-- ... -->
     </mat-card>
   </div>

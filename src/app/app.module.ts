@@ -48,6 +48,7 @@ import { ProfileOwnerComponent } from './public/pages/profile-user/profile-owner
 import { MatTableModule } from '@angular/material/table';
 import { MatListModule } from '@angular/material/list';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatSortModule } from '@angular/material/sort';
 import { HttpClientModule } from '@angular/common/http';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
@@ -110,6 +111,7 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
         MatListModule,
         MatTableModule,
         MatPaginatorModule,
+        MatDialogModule,
         MatSortModule,
         HttpClientModule,
         provideFirebaseApp(() => initializeApp(environment.firebase)),
