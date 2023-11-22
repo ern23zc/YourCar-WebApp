@@ -32,60 +32,65 @@
 
         <!-- Formulario -->
         <div class="form-container" fxFlex="50%">
-          <form fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="20px">
+          <form fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="20px" (ngSubmit)="submitCar()">
             <mat-form-field appearance="fill" fxFlex="calc(50% - 20px)" style="font-family: 'Poppins',sans-serif;">
               <mat-label>Marca</mat-label>
-              <input matInput placeholder="Marca del vehículo">
+              <input matInput placeholder="Marca del vehículo" [(ngModel)]="car.brand" name="brand" required>
             </mat-form-field>
 
             <mat-form-field appearance="fill" fxFlex="calc(50% - 20px)" style="font-family: 'Poppins',sans-serif;">
               <mat-label>Modelo</mat-label>
-              <input matInput placeholder="Modelo del vehículo">
+              <input matInput placeholder="Modelo del vehículo" [(ngModel)]="car.model" name="model" required>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" fxFlex="calc(100% - 20px)" style="font-family: 'Poppins',sans-serif;">
+              <mat-label>Foto</mat-label>
+              <input matInput placeholder="Fotografía del vehículo" [(ngModel)]="car.photo" name="photo" required>
             </mat-form-field>
 
             <mat-form-field appearance="fill" fxFlex="calc(50% - 20px)" style="font-family: 'Poppins',sans-serif;">
               <mat-label>Velocidad máxima</mat-label>
-              <input matInput placeholder="Velocidad máxima">
+              <input matInput placeholder="Velocidad máxima" [(ngModel)]="car.maxspeed" name="maxspeed" required>
             </mat-form-field>
 
             <mat-form-field appearance="fill" fxFlex="calc(50% - 20px)" style="font-family: 'Poppins',sans-serif;">
               <mat-label>Consumo de combustible</mat-label>
-              <input matInput placeholder="Consumo de combustible">
+              <input matInput placeholder="Consumo de combustible" [(ngModel)]="car.fuelconsumption" name="fuelconsumption" required>
             </mat-form-field>
 
             <mat-form-field appearance="fill" fxFlex="calc(50% - 20px)" style="font-family: 'Poppins',sans-serif;">
               <mat-label>Dimensiones (Largo/Ancho/Alto)</mat-label>
-              <input matInput placeholder="Dimensiones">
+              <input matInput placeholder="Dimensiones" [(ngModel)]="car.dimension" name="dimension" required>
             </mat-form-field>
 
             <mat-form-field appearance="fill" fxFlex="calc(50% - 20px)" style="font-family: 'Poppins',sans-serif;">
               <mat-label>Peso</mat-label>
-              <input matInput placeholder="Peso">
+              <input matInput placeholder="Peso" [(ngModel)]="car.weight" name="weight" required>
             </mat-form-field>
 
             <mat-form-field appearance="fill" fxFlex="calc(50% - 20px)" style="font-family: 'Poppins',sans-serif;">
-              <mat-label>Clase</mat-label>
-              <input matInput placeholder="Clase">
+              <mat-label>Año</mat-label>
+              <input matInput placeholder="Año" [(ngModel)]="car.year" name="year" required>
             </mat-form-field>
 
             <mat-form-field appearance="fill" fxFlex="calc(50% - 20px)" style="font-family: 'Poppins',sans-serif;">
               <mat-label>Transmisión</mat-label>
-              <input matInput placeholder="Transmisión">
+              <input matInput placeholder="Transmisión" [(ngModel)]="car.engine" name="engine" required>
             </mat-form-field>
 
             <mat-form-field appearance="fill" fxFlex="calc(50% - 20px)" style="font-family: 'Poppins',sans-serif;">
-              <mat-label>Tiempo de alquiler</mat-label>
-              <input matInput placeholder="Tiempo de alquiler">
+              <mat-label>Tiempo de alquiler (en días)</mat-label>
+              <input matInput placeholder="Tiempo de alquiler (en días)" [(ngModel)]="car.timeloan" name="timeloan" required>
             </mat-form-field>
 
             <mat-form-field appearance="fill" fxFlex="calc(50% - 20px)" style="font-family: 'Poppins',sans-serif;">
               <mat-label>Costo de alquiler al mes</mat-label>
-              <input matInput placeholder="Costo de alquiler al mes">
+              <input matInput placeholder="Costo de alquiler al mes" [(ngModel)]="car.price" name="price" required>
             </mat-form-field>
 
             <mat-form-field appearance="fill" fxFlex="calc(50% - 20px)" style="font-family: 'Poppins',sans-serif;">
               <mat-label>Lugar de recojo del vehículo</mat-label>
-              <input matInput placeholder="Costo de alquiler al mes">
+              <input matInput placeholder="Lugar de recojo del vehículo" [(ngModel)]="car.ubication" name="ubication" required>
             </mat-form-field>
 
             <button mat-raised-button fxFlex="100%" class="registrar-button" mat-button style="background-color: #2F9568;color: white;font-family: 'Poppins',sans-serif;">Registro</button>
@@ -100,7 +105,30 @@
       </div>
     </mat-card>
 
+     <!-- Nueva sección para mostrar autos subidos -->
+  <mat-card style="margin-top: 20px;">
+    <mat-card-header>
+      <mat-card-title class="letter1" style="font-family: 'Poppins',sans-serif;">
+        Tus autos subidos
+      </mat-card-title>
+    </mat-card-header>
 
+    <mat-card-content>
+      <div fxLayout="row wrap" fxLayoutGap="20px">
+        <!-- Usar *ngFor para iterar sobre los autos subidos filtrados por ownerUid -->
+        <mat-card *ngFor="let car of cars" fxFlex="calc(33.33% - 20px)">
+          <img [src]="car.photo" alt="Imagen" style="max-width: 100%; max-height: 100%;" />
+
+          <mat-card-title>{{ car.brand }} {{ car.model }}</mat-card-title>
+          <p>Velocidad máxima: {{ car.maxspeed }}</p>
+          <p>Consumo de combustible: {{ car.fuelconsumption }}</p>
+          <!-- Agregar más detalles según sea necesario -->
+
+          <button mat-raised-button color="primary">Ver detalles</button>
+        </mat-card>
+      </div>
+    </mat-card-content>
+  </mat-card>
 
 
 

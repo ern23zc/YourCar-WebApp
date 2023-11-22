@@ -23,6 +23,8 @@ export class LoginTenantComponent {
     this.userService.login(this.formLog_Tenant.value)
         .then(response=>{
           console.log(response);
+          console.log(response.user.uid); //-> UID
+          //this.userService.setUID(response.user.uid);
           this.router.navigate(['/main-page-tenant']);
         })
         .catch(error=>console.log(error));

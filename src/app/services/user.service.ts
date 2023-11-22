@@ -5,29 +5,45 @@ import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendP
   providedIn: 'root'
 })
 export class UserService {
-  constructor(private auth: Auth) { }
+  private readonly UID_KEY = 'user_uid';
+
+  constructor(private auth: Auth) {
+    this.uid = localStorage.getItem(this.UID_KEY) || '';
+
+  }
 
   getAuthInstance(): Auth {
     return this.auth;
   }
-  register({email, password}: any){
+
+  register({ email, password }: any) {
     return createUserWithEmailAndPassword(this.auth, email, password);
   }
-  login({email, password}: any) {
-   return signInWithEmailAndPassword(this.auth, email, password);
+
+  login({ email, password }: any) {
+    return signInWithEmailAndPassword(this.auth, email, password).then(response =>{
+      this.uid = response.user.uid;
+      localStorage.setItem(this.UID_KEY, this.uid);
+      return response;
+    })
+    ;
   }
+
   async resetPassword({email}: any){
     try {
       return sendPasswordResetEmail(this.auth, email)
     }catch (error){console.log(error)}
   }
 
-  async getUID(){
-    const user = await this.auth.currentUser;
-    if(user==null){
-      return null;
-    } else {
-      return user.uid;
-    }
+  private uid!: string;
+
+  getUID(): string {
+    return this.uid;
   }
+  clearUID() {
+    // Limpiar el UID y también eliminarlo del localStorage
+    this.uid = '';
+    localStorage.removeItem(this.UID_KEY);
+  }
+
 }

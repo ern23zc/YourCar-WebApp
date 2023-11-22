@@ -9,8 +9,10 @@ import { Car } from '../models/car.model';
 })
 export class CarService {
   
-  base_URL = 'http://localhost:3000/cars';
-  
+  //base_URL = 'http://localhost:3000/cars';
+  //base_URL = 'http://localhost:8080/api/car-unity/v1/cars';
+  base_URL = 'https://yourcar.zeabur.app/api/car-unity/v1/cars'
+
   constructor( private http: HttpClient) {}
 
   httpOptions = {
@@ -32,44 +34,39 @@ export class CarService {
     return throwError('Something bad happened; please try again later.')
   }
 
-  getCars(): Observable<Car>{
-    return this.http.get<Car>(this.base_URL)
-    .pipe(
-      retry(2),
-      catchError(this.handleError)
-    )
-  }
-/*
-  getCar(id: number): Observable<any>{
-    return this.http.get<any>(this.base_URL + '/' + id)
+  //Get all cars
+  getCars(): Observable<Car[]>{
+    return this.http.get<Car[]>(this.base_URL)
     .pipe(
       retry(2),
       catchError(this.handleError)
     )
   }
 
-  createCar(car: any): Observable<any>{
-    return this.http.post<any>(this.base_URL, JSON.stringify(car), this.httpOptions)
+  //Get cars available
+  getCarsAvailable(): Observable<Car[]>{
+    return this.http.get<Car[]>(this.base_URL + '/available')
     .pipe(
       retry(2),
       catchError(this.handleError)
     )
   }
 
-  updateCar(id: number, car: any): Observable<any>{
-    return this.http.put<any>(this.base_URL + '/' + id, JSON.stringify(car), this.httpOptions)
+  //Get cars by ownerUid
+  getCarsByOwnerUid(ownerUid: string): Observable<Car[]>{
+    return this.http.get<Car[]>(this.base_URL + '/filterByOwnerUid' + '?ownerUid=' + ownerUid)
     .pipe(
       retry(2),
       catchError(this.handleError)
     )
   }
 
-  deleteCar(id: number): Observable<any>{
-    return this.http.delete<any>(this.base_URL + '/' + id, this.httpOptions)
+  //Post car
+  createCar(car: Car): Observable<Car>{
+    return this.http.post<Car>(this.base_URL, JSON.stringify(car), this.httpOptions)
     .pipe(
       retry(2),
       catchError(this.handleError)
     )
   }
-  */
 }
