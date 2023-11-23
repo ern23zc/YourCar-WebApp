@@ -56,59 +56,50 @@ import { environment } from '../environments/environment';
 import {provideAuth, getAuth, Auth} from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import {UserService} from "./services/user.service";
-
-
+import {AngularFireAuthModule} from "@angular/fire/compat/auth";
+import {BrowserDynamicTestingModule} from "@angular/platform-browser-dynamic/testing";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginTenantComponent,
-    LoginOwnerComponent,
-    RegisterTenantComponent,
-    RegisterOwnerComponent,
-    PageNotFoundComponent,
-    RecoverPasswordTenantComponent,
-    RecoverPasswordOwnerComponent,
-    RestoreTenantComponent,
-    RestoreOwnerComponent,
-    ValidationComponent,
-    MainPageTenantComponent,
-    ShareAutoTenantComponent,
-    MaintenanceTenantComponent,
-    MainPageOwnerComponent,
-    NotificationsOwnerComponent,
-    VehicleRegistrationOwnerComponent,
-    CreateContractOwnerComponent,
-    RentOwnerComponent,
-    RentTenantComponent,
-    PayCarRentalComponent,
-    RequestTenantComponent,
-    ProfileTenantComponent,
-    ProfileOwnerComponent,
-
-
-  ],
+    declarations: [
+        AppComponent,
+        LoginTenantComponent,
+        LoginOwnerComponent,
+        RegisterTenantComponent,
+        RegisterOwnerComponent, // Add RegisterOwnerComponent to declarations
+        PageNotFoundComponent,
+        RecoverPasswordTenantComponent,
+        RecoverPasswordOwnerComponent,
+        RestoreTenantComponent,
+        RestoreOwnerComponent,
+        ValidationComponent,
+        MainPageTenantComponent,
+        ShareAutoTenantComponent,
+        MaintenanceTenantComponent,
+        MainPageOwnerComponent,
+        NotificationsOwnerComponent,
+        VehicleRegistrationOwnerComponent,
+        CreateContractOwnerComponent,
+        RentOwnerComponent,
+        RentTenantComponent,
+        PayCarRentalComponent,
+        RequestTenantComponent,
+        ProfileTenantComponent,
+        ProfileOwnerComponent,
+    ],
     imports: [
-        MatSnackBarModule,
-        AppRoutingModule,
         BrowserModule,
         BrowserAnimationsModule,
         MatToolbarModule,
         MatButtonModule,
         MatCardModule,
-        NgOptimizedImage,
         MatInputModule,
         MatSelectModule,
-        MatIconModule,
-        FormsModule,
         FlexLayoutModule,
         MatSidenavModule,
-        MyRoutingModule,
-        NgbCarousel,
+        AppRoutingModule, // Add AppRoutingModule to imports
+        MatIconModule,
+        MdbCarouselModule,
         NgbCarouselModule,
-        NgIf,
-        NgbSlide,
-        NgbModule,
         SlickCarouselModule,
         MatSnackBarModule,
         MatListModule,
@@ -122,12 +113,11 @@ import {UserService} from "./services/user.service";
         ReactiveFormsModule,
         provideFirestore(() => getFirestore()),
     ],
-  exports:[
-  MatButtonModule,
-  MatIconModule,
-  ],
-  providers: [UserService],
-  bootstrap: [AppComponent]
+    exports: [
+        MatButtonModule,
+        MatIconModule,
+    ],
+    providers: [UserService, Auth],
+    bootstrap: [AppComponent],
 })
-export class AppModule {
-}
+export class AppModule {}

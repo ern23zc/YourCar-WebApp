@@ -3,6 +3,8 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {UserService} from "../../../../services/user.service";
 import {Router} from "@angular/router";
 
+
+
 @Component({
   selector: 'app-register-owner',
   templateUrl: './register-owner.component.html',
@@ -14,8 +16,8 @@ export class RegisterOwnerComponent {
   formReg_Owner: FormGroup;
 
   constructor(
-    private userService: UserService,
-    private router:Router
+    public userService: UserService,
+    public router:Router
   ) {
     this.formReg_Owner = new FormGroup({
       name: new FormControl(),

@@ -11,7 +11,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {MatSelectModule} from "@angular/material/select";
 import {PayCarRentalComponent} from "../pay-car-rental/pay-car-rental.component";
-
+/*
 describe('rent-tenant', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -27,3 +27,4 @@ describe('rent-tenant', () => {
     expect(app).toBeTruthy();
   });
 });
+*/

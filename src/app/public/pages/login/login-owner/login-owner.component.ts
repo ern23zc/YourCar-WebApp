@@ -19,13 +19,15 @@ export class LoginOwnerComponent {
     });
   }
 
-  onSubmit(){
+  onSubmit() {
     this.userService.login(this.formLog_Owner.value)
-        .then(response=>{
-          console.log(response.user.uid); //-> UID
-          //this.userService.setUID(response.user.uid);
+        .then(response => {
+          console.log(response.user.uid);
           this.router.navigate(['/main-page-owner']);
         })
-        .catch(error=>console.log(error));
+        .catch(error => {
+          console.error('Error during login:', error); // Make sure the error is logged here
+        });
   }
+
 }

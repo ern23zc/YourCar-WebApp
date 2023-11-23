@@ -13,4 +13,7 @@ export class RestoreOwnerComponent {
   clickAddTodo() {
     alert('Se envio un código de acceso a su correo!');
   }
+
+
+
 }

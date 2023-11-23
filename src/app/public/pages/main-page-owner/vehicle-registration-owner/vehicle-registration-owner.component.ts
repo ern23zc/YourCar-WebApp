@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { Car } from 'src/app/models/car.model';
 import { UserService } from 'src/app/services/user.service';
 import { CarService } from 'src/app/services/car.service';
-import { Auth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-vehicle-registration-owner',
@@ -30,8 +29,8 @@ export class VehicleRegistrationOwnerComponent {
   cars: Car[] = [];
   uid!: string;
   constructor(
-    private carService: CarService,
-    private userService: UserService
+    public carService: CarService,
+    public userService: UserService
   ) {}
 
   ngOnInit(): void {

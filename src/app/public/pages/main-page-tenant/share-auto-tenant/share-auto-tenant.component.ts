@@ -98,4 +98,9 @@ export class ShareAutoTenantComponent implements OnInit {
       }
     );
   }
+  reloadPage() {
+    console.log('reloadPage called');
+    window.location.reload();
+  }
+
 }
